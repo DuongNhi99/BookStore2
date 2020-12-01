@@ -1,0 +1,62 @@
+﻿@model BookStore.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutFreecss.cshtml";
+}
+<section id="aa-myaccount">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-myaccount-area">
+                    <div class="row">
+
+                        <div class="form-horizontal">
+                            <h4>Register</h4>
+                            @using (Html.BeginForm("Register", "Authentication", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group  form-control-user ">
+
+                                    @Html.LabelFor(m => m.HoTen)
+                                    @Html.TextBoxFor(m => m.HoTen, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.HoTen)
+                                </div>
+
+                                <div class="form-group  form-control-user ">
+
+                                    @Html.LabelFor(m => m.Email)
+                                    @Html.TextBoxFor(m => m.Email, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.Email)
+                                </div>
+                                <div class="form-group  form-control-user ">
+
+                                    @Html.LabelFor(m => m.SDT)
+                                    @Html.TextBoxFor(m => m.SDT, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.SDT)
+                                </div>
+                                <div class="form-group  form-control-user ">
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.PasswordFor(m => m.Password, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+
+                                </div>
+                                @*<div class="form-group  form-control-user ">
+                                        @Html.LabelFor(m => m.ConfirmPassword)
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { style = "width:100%" })
+                                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+
+                                    </div>*@
+                                <input class="btn btn-primary" type="submit" value="Register" />
+                                <a class="btn btn-primary" href="@Url.Action("Login","Authentication")">Login</a>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

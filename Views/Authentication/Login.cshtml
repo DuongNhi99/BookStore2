@@ -1,0 +1,52 @@
+﻿@model BookStore.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutFreecss.cshtml";
+}
+
+<section id="aa-myaccount">
+    <div class="container">
+        <div class="row">
+
+            <div class="aa-myaccount-area">
+                <div class="row">
+                    <div class="container">
+                        <div class="form-horizontal">
+                            <h4>Login</h4>
+                            @using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group  form-control-user ">
+
+                                    @Html.LabelFor(m => m.Email)
+                                    @Html.TextBoxFor(m => m.Email, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.Email)
+                                </div>
+
+                                <div class="form-group  form-control-user ">
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.PasswordFor(m => m.Password, new { style = "width:100%" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+
+                                </div>
+
+                                <input class="btn btn-info" type="submit" value="Login" />
+
+                                <a class="btn btn-info" href="@Url.Action("Register","Authentication")">Register</a>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
